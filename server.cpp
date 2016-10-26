@@ -1,3 +1,5 @@
+
+#ifdef WIN32
 #include <pthread.h>
 #include <iostream>
 #include <cygwin/socket.h>
@@ -10,6 +12,20 @@
 #include <w32api/fibersapi.h>
 #include <w32api/ntdef.h>
 #include "server.h"
+#else
+#include <pthread.h>
+#include <iostream>
+#include <stdio.h>
+#include <sys/socket.h>
+#include <arpa/inet.h>
+#include <stdlib.h>
+#include <cstring>
+#include <asm/byteorder.h>
+#include <vector>
+#include <unistd.h>
+#include "server.h"
+#endif
+
 
 #define BUFF_SIZE 500
 
